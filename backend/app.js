@@ -22,6 +22,9 @@ const corsOptions = {
 
 connectDb();
 
+app.get("/", (req, res) => {
+  res.send(process.env.FRONTEND_URL);
+});
 
 // Middlewares
 
