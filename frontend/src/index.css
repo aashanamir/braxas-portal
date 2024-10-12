@@ -5,8 +5,8 @@
 }
 
 .container {
-  width: 1000px;
-  max-width: 80%;
+  width: 1200px;
+  max-width: 90%;
   margin: 0 auto;
 }
 
@@ -16,4 +16,13 @@
   position: absolute;
   left: 80px;
   top: 100px;
+}
+
+
+@media screen and (max-width: 780px) {
+  .rightSide {
+    width: 80%;
+    left: 50px;
+  }
+  
 }
