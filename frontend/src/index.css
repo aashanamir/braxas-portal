@@ -1,12 +1,19 @@
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-.container{
-  width: 1200px;
-  max-width: 90%;
-  /* background-color: yellow; */
+.container {
+  width: 1000px;
+  max-width: 80%;
   margin: 0 auto;
+}
+
+
+.rightSide {
+  width: 90%;
+  position: absolute;
+  left: 80px;
+  top: 100px;
 }

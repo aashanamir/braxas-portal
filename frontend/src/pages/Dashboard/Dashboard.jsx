@@ -1,6 +1,4 @@
 import React from "react";
-import Navbar from "../../components/Navbar/Navbar";
-import Sidebar from "../../components/Sidebar/Sidebar";
 import styles from "./style.module.css";
 import DashboardCard from "../../components/DashboardCard/DashboardCard";
 import { FiUsers } from "react-icons/fi";
@@ -34,10 +32,7 @@ const Dashboard = () => {
 
   return (
     <div>
-      <Navbar />
-      <div className={styles.dashboard_container}>
-      <Sidebar />
-
+      <div className={`${styles.dashboard_container} rightSide`}>
         <div className={styles.dashboard}>
           <h1 className={styles.title}>Dashboard</h1>
           <div className={styles.cardsContainer}>
