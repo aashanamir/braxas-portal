@@ -14,7 +14,7 @@ config({
 
 
 const corsOptions = {
-  origin: [process.env.FRONTEND_URL],
+  origin: "https://www.braxas-intl.com",
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
   credentials: true,
   optionsSuccessStatus: 204,
@@ -22,6 +22,9 @@ const corsOptions = {
 
 connectDb();
 
+app.get("/", (req, res) => {
+  res.send(process.env.FRONTEND_URL);
+});
 
 // Middlewares
 
