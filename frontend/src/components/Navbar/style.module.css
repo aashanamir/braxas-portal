@@ -1,0 +1,35 @@
+nav{
+  background: linear-gradient(135deg, #ff3300, #5a5a5a);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.container{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo{
+  height: 95px;
+  width: 120px;
+  overflow: hidden;
+}
+
+.signin svg{
+  width: 40px;
+  height: 40px;
+}
+
+
+@media screen and(max-width: 500px){
+ 
+  .signin svg{
+    width: 30px;
+    height: 30px;
+  }
+  
+}

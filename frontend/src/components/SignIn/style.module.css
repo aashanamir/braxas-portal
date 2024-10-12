@@ -1,0 +1,77 @@
+/* SignIn.module.css */
+.signInContainer {
+  padding: 20px;
+  background-color: white;
+  /* Background color */
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+  margin: 80px auto;
+  width: 40%;
+}
+
+.title {
+  text-align: center;
+  color: red;
+  /* Primary color */
+  margin-bottom: 20px;
+  font-size: 24px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+}
+
+.label {
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.input {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.input:focus {
+  outline: none;
+  border-color: red;
+  /* Primary color when focused */
+}
+
+.signInButton {
+  background-color: red;
+  /* Primary color */
+  color: white;
+  /* Secondary color */
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.signInButton:hover {
+  background-color: #ff4d4d;
+  /* Slightly lighter red for hover */
+}
+
+.signInButton:active {
+  background-color: #cc0000;
+  /* Darker red on click */
+}
+
+
+@media screen and (max-width : 700px) {
+  
+  .signInContainer {
+    width: 100%;
+  }
+}

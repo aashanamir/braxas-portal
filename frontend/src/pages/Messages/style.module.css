@@ -1,0 +1,60 @@
+.flex{
+  display:  flex;
+  /* align-items: center; */
+  margin-top: 80px;
+
+}
+
+
+.messageListContainer{
+  padding: 40px;
+  width: 800px;
+  margin: 20px auto;
+  max-width: 80%;
+  background-color: whitesmoke;
+  height: 80vh;
+  border-radius: 20px;
+}
+
+.messageList {
+  list-style-type: none;
+  padding: 0;
+}
+
+.messageItem {
+  background-color: white;
+  border: 1px solid #e0e0e0;
+  padding: 15px;
+  margin: 10px 0;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.messageItem:hover {
+  background-color: #f5f5f5;
+}
+
+@media screen and (max-width: 800px) {
+  .messageListContainer {
+    height: 100vh;
+    row-gap: 28px;
+    display: flex;
+    flex-direction: column;
+  }
+  .createmessageButton{
+    padding: 8px;
+    font-size: 8px;
+  }
+  .header h1{
+    font-size: 18px;
+    font-weight: 600;
+  }
+
+  .messageList{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+}

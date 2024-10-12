@@ -1,0 +1,45 @@
+.dashboard_container{
+  display: flex;
+  width: 100%;
+  /* background-color: red; */
+  margin-top: 40px;
+}
+
+/* Dashboard.module.css */
+.dashboard {
+  padding: 20px;
+  /* margin-left: 150px; */
+  width: 100%;
+}
+
+.title {
+  font-size: 24px;
+  color: red; /* Primary color */
+  margin-bottom: 20px;
+}
+
+.cardsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+
+
+.messagesSection{
+  background-color: whitesmoke;
+  padding: 18px;
+  margin: 80px auto;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  border-radius: 8px;
+}
+
+
+@media screen and (max-width : 780px) {
+  .dashboard {
+    margin-left: 0px;
+  }
+    
+}

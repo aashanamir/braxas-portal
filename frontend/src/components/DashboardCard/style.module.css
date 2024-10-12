@@ -1,0 +1,62 @@
+.card {
+  background: linear-gradient(135deg, #ff3300, #5a5a5a); /* Gradient background */
+  color: white; /* White text for better contrast */
+  border-radius: 12px;
+  padding: 40px 20px;
+  flex: 1 1 200px; /* Flex-grow, flex-shrink, flex-basis */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  display: flex; /* Flexbox for inner content alignment */
+  justify-content: space-between;
+  align-items: center; /* Center vertically */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animation effects */
+  position: relative; /* Position for pseudo-element */
+  cursor: pointer;
+}
+
+.card:hover {
+  transform: translateY(-5px); /* Lift effect on hover */
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.cardContent {
+  flex: 1; /* Take available space */
+}
+
+.card h2 {
+  font-size: 22px; /* Increase font size */
+  margin: 0;
+}
+
+.card p {
+  font-size: 18px; /* Increase font size */
+  margin: 0;
+}
+
+.cardIcon {
+  font-size: 32px; /* Icon size */
+}
+
+.icon {
+  position: absolute; /* Position the icon */
+  bottom: 10px; /* Adjust position */
+  right: 10px; /* Adjust position */
+  opacity: 0.5; /* Slight transparency */
+}
+
+@media (max-width: 768px) {
+  .card {
+    padding: 15px;
+  }
+
+  .card h2 {
+    font-size: 20px;
+  }
+
+  .card p {
+    font-size: 16px;
+  }
+
+  .cardIcon {
+    font-size: 28px;
+  }
+}
