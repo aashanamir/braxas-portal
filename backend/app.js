@@ -14,7 +14,7 @@ config({
 
 
 const corsOptions = {
-  origin: [process.env.FRONTEND_URL],
+  origin: ["https://www.braxas-intl.com"],
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
   credentials: true,
   optionsSuccessStatus: 204,
