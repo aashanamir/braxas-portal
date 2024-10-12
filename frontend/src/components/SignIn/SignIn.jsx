@@ -7,7 +7,6 @@ const SignIn = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Handle sign-in logic here (e.g., call an API)
     console.log("Email:", email);
     console.log("Password:", password);
   };
