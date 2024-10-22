@@ -59,7 +59,7 @@ const EmployeeProfile = () => {
           );
 
           // Define a radius (in meters) for marking attendance, e.g., 100 meters
-          const ACCEPTABLE_RADIUS = 30;
+          const ACCEPTABLE_RADIUS = 20;
 
           if (distance <= ACCEPTABLE_RADIUS) {
             const currentTimestamp = new Date().toISOString();
