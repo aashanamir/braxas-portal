@@ -49,7 +49,7 @@ function App() {
 
   useEffect(() => {
     fetchUser();
-  }, []);
+  }, [dispatch]);
 
   if (status === "loading") {
     return <LoadingEffect />;
