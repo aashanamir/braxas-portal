@@ -138,6 +138,7 @@ export const loginEmployee = catchAsyncError(async (req, res, next) => {
     httpOnly: true,
     withCredentials: true,
     sameSite: 'none',
+    secure: true
   }).json({
     success: true,
     token,
