@@ -49,7 +49,7 @@
 @media screen and (max-width: 900px) {
   .attendanceContainer {
     padding: 10px;
-    margin: 120px 20px 0 auto;
+    margin: 120px 10px 0 auto;
     max-width: 80%;
   }
 .attendanceTable {

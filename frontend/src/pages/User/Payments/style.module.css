@@ -46,6 +46,7 @@
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  overflow-x: auto;
 }
 
 .paymentTable {
@@ -78,7 +79,7 @@
 @media (max-width: 768px) {
   .paymentHistoryContainer {
     padding: 10px;
-    margin: 120px 20px 0 auto;
+    margin: 120px 10px 0 auto;
     max-width: 80%;
   }
 
