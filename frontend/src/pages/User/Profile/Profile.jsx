@@ -18,38 +18,68 @@ const employee = {
   },
 };
 
-// Replace with your specific longitude and latitude
+// Target location for the plaza
 const TARGET_LOCATION = {
-  latitude: 31.577279 , // Example: Lahore
+  latitude: 31.577279, // Example: Lahore
   longitude: 74.362035,
+};
 
+// Haversine formula to calculate distance between two points (in meters)
+const getDistanceFromLatLonInMeters = (lat1, lon1, lat2, lon2) => {
+  const R = 6371e3; // Earth's radius in meters
+  const toRad = (value) => (value * Math.PI) / 180;
+
+  const dLat = toRad(lat2 - lat1);
+  const dLon = toRad(lon2 - lon1);
+  const a =
+    Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+    Math.cos(toRad(lat1)) * Math.cos(toRad(lat2)) *
+    Math.sin(dLon / 2) * Math.sin(dLon / 2);
+  const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+
+  return R * c; // Distance in meters
 };
 
 const EmployeeProfile = () => {
   const [attendanceMarked, setAttendanceMarked] = useState(false);
+  const [error, setError] = useState("");
 
   const markAttendance = () => {
     if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition((position) => {
-        const { latitude, longitude } = position.coords;
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          const { latitude, longitude } = position.coords;
 
-        if (
-          latitude.toFixed(4) === TARGET_LOCATION.latitude.toFixed(4) &&
-          longitude.toFixed(4) === TARGET_LOCATION.longitude.toFixed(4)
-        ) {
-          console.log(latitude.toFixed(4), TARGET_LOCATION.latitude.toFixed(4) , longitude.toFixed(4), TARGET_LOCATION.longitude.toFixed(4) );
-          
-          const currentTimestamp = new Date().toISOString();
-          console.log("Attendance marked at:", currentTimestamp);
-          alert("Attendance marked successfully!");
-          setAttendanceMarked(true);
-        } else {
-          alert("Wrong location mark! Please check your location.");
-          console.log(latitude.toFixed(4), TARGET_LOCATION.latitude.toFixed(4) , longitude.toFixed(4), TARGET_LOCATION.longitude.toFixed(4) );
+          // Calculate the distance to the target location
+          const distance = getDistanceFromLatLonInMeters(
+            latitude,
+            longitude,
+            TARGET_LOCATION.latitude,
+            TARGET_LOCATION.longitude
+          );
+
+          // Define a radius (in meters) for marking attendance, e.g., 100 meters
+          const ACCEPTABLE_RADIUS = 100;
+
+          if (distance <= ACCEPTABLE_RADIUS) {
+            const currentTimestamp = new Date().toISOString();
+            console.log("Attendance marked at:", currentTimestamp);
+            alert("Attendance marked successfully!");
+            setAttendanceMarked(true);
+            setError("");
+          } else {
+            alert(`You are too far from the allowed area. Distance: ${distance.toFixed(2)} meters`);
+            setError("Outside allowed range.");
+          }
+        },
+        () => {
+          alert("Unable to retrieve your location.");
+          setError("Unable to retrieve location.");
         }
-      });
+      );
     } else {
       alert("Geolocation is not supported by this browser.");
+      setError("Geolocation is not supported.");
     }
   };
 
@@ -110,7 +140,9 @@ const EmployeeProfile = () => {
       <button className={styles.markAttendanceButton} onClick={markAttendance}>
         <FaMapMarkerAlt /> Mark Attendance
       </button>
+
       {attendanceMarked && <p>Attendance has been marked for today.</p>}
+      {error && <p className={styles.errorMessage}>{error}</p>}
     </div>
   );
 };
