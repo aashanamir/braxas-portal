@@ -1,0 +1,111 @@
+.paymentHistoryContainer {
+  padding: 20px;
+  max-width: 1000px;
+  margin: 140px auto;
+  background-color: #f7f7f9;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.title {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.currentSalary {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px;
+}
+
+.salaryDetails {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.salaryDetails div {
+  padding: 10px;
+  background-color: #f2f2f2;
+  border-radius: 5px;
+}
+
+.totalPayable {
+  grid-column: span 2;
+  background-color: #e0f7fa;
+  font-weight: bold;
+}
+
+.historySection {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.paymentTable {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.paymentTable th,
+.paymentTable td {
+  padding: 15px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.paymentTable th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+  color: #333;
+}
+
+.paymentTable tr:last-child td {
+  border-bottom: none;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .paymentHistoryContainer {
+    padding: 10px;
+    margin: 120px 20px 0 auto;
+    max-width: 80%;
+  }
+
+  .salaryDetails {
+    grid-template-columns: 1fr;
+  }
+
+  .paymentTable th,
+  .paymentTable td {
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  .title {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+
+  .paymentTable th,
+  .paymentTable td {
+    padding: 8px;
+    font-size: 12px;
+  }
+
+  .title {
+    font-size: 18px;
+  }
+}

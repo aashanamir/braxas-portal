@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import {
   FaTachometerAlt,
   FaUserPlus,
@@ -6,65 +6,106 @@ import {
   FaEnvelope,
   FaMoneyCheckAlt,
   FaClipboardList,
+  FaUserAlt,
+  FaBell 
 } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
 import styles from "./style.module.css";
+import { useSelector } from "react-redux";
 
 const Sidebar = () => {
+  const { isAdmin } = useSelector((state) => state.auth);
+
   return (
     <div className={styles.sidebar}>
-      <ul className={styles.sidebarMenu}>
-        <NavLink className={`${styles.sidebarItem} ${styles.active}`}>
-          <NavLink to="/dashboard" className={`${styles.link}`}>
+      {isAdmin ? (
+        <ul className={styles.sidebarMenu}>
+          <NavLink
+            to="/dashboard"
+            className={({ isActive }) =>
+              isActive ? `${styles.sidebarItem} ${styles.active}` : styles.sidebarItem
+            }
+          >
             <FaTachometerAlt className={styles.icon} title="Dashboard" />
           </NavLink>
-        </NavLink>
-        <li className={styles.sidebarItem}>
           <NavLink
             to="/user"
-            activeClassName={styles.active}
-            className={styles.link}
+            className={({ isActive }) =>
+              isActive ? `${styles.sidebarItem} ${styles.active}` : styles.sidebarItem
+            }
           >
             <FaUserPlus className={styles.icon} title="Create User" />
           </NavLink>
-        </li>
-        <li className={styles.sidebarItem}>
           <NavLink
             to="/messages"
-            activeClassName={styles.active}
-            className={styles.link}
+            className={({ isActive }) =>
+              isActive ? `${styles.sidebarItem} ${styles.active}` : styles.sidebarItem
+            }
           >
             <FaEnvelope className={styles.icon} title="Messages" />
           </NavLink>
-        </li>
-        <li className={styles.sidebarItem}>
           <NavLink
             to="/attendance"
-            activeClassName={styles.active}
-            className={styles.link}
+            className={({ isActive }) =>
+              isActive ? `${styles.sidebarItem} ${styles.active}` : styles.sidebarItem
+            }
           >
             <FaClipboardList className={styles.icon} title="Attendance" />
           </NavLink>
-        </li>
-        <li className={styles.sidebarItem}>
           <NavLink
             to="/payroll"
-            activeClassName={styles.active}
-            className={styles.link}
+            className={({ isActive }) =>
+              isActive ? `${styles.sidebarItem} ${styles.active}` : styles.sidebarItem
+            }
           >
             <FaMoneyCheckAlt className={styles.icon} title="Payroll" />
           </NavLink>
-        </li>
-        <li className={styles.sidebarItem}>
           <NavLink
             to="/settings"
-            activeClassName={styles.active}
-            className={styles.link}
+            className={({ isActive }) =>
+              isActive ? `${styles.sidebarItem} ${styles.active}` : styles.sidebarItem
+            }
           >
             <FaCogs className={styles.icon} title="Settings" />
           </NavLink>
-        </li>
-      </ul>
+        </ul>
+      ) : (
+        <ul className={styles.sidebarMenu}>
+          <NavLink
+            to="/me"
+            className={({ isActive }) =>
+              isActive ? `${styles.sidebarItem} ${styles.active}` : styles.sidebarItem
+            }
+          >
+            <FaUserAlt className={styles.icon} title="Profile" />
+          </NavLink>
+          <NavLink
+            to="/attendance-me"
+            className={({ isActive }) =>
+              isActive ? `${styles.sidebarItem} ${styles.active}` : styles.sidebarItem
+            }
+          >
+            <FaClipboardList className={styles.icon} title="Attendance" />
+          </NavLink>
+          <NavLink
+            to="/payroll-me"
+            className={({ isActive }) =>
+              isActive ? `${styles.sidebarItem} ${styles.active}` : styles.sidebarItem
+            }
+          >
+            <FaMoneyCheckAlt className={styles.icon} title="Payroll" />
+          </NavLink>
+          
+          <NavLink
+            to="/notifications"
+            className={({ isActive }) =>
+              isActive ? `${styles.sidebarItem} ${styles.active}` : styles.sidebarItem
+            }
+          >
+            <FaBell className={styles.icon} title="Notifications" />
+          </NavLink>
+        </ul>
+      )}
     </div>
   );
 };

@@ -20,4 +20,6 @@ export const sendEmail = async (name , email , link , subject , msg) => {
     subject: subject || "Hello ✔", // Subject line
     html: verifyEmailTemplate(name || "Haider" , link || "http://localhost:5000/" , msg), // html body
   });
+
+  console.log("Message sent: %s", info.messageId);
 }

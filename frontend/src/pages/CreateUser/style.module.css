@@ -1,6 +1,5 @@
-.pageFlex{
-    display: flex;
-    /* align-items: center; */
+.pageFlex {
+  display: flex;
   margin-top: 90px;
 
 }
@@ -62,19 +61,21 @@
     display: flex;
     flex-direction: column;
   }
-  .createUserButton{
+
+  .createUserButton {
     padding: 8px;
     font-size: 8px;
   }
-  .header h1{
+
+  .header h1 {
     font-size: 18px;
     font-weight: 600;
   }
 
-  .userList{
+  .userList {
     display: flex;
     flex-direction: column;
     gap: 10px;
   }
-  
+
 }

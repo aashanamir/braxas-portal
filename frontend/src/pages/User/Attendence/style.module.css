@@ -1,0 +1,61 @@
+.attendanceContainer {
+  padding: 20px;
+  max-width: 800px;
+  margin: 120px auto;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.title {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.attendanceTable {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+.attendanceTable th,
+.attendanceTable td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.attendanceTable th {
+  background-color: #f2f2f2;
+}
+
+.status {
+  padding: 5px 10px;
+  border-radius: 4px;
+  color: white;
+}
+
+.present {
+  background-color: green;
+}
+
+.absent {
+  background-color: red;
+}
+
+
+@media screen and (max-width: 900px) {
+  .attendanceContainer {
+    padding: 10px;
+    margin: 120px 20px 0 auto;
+    max-width: 80%;
+  }
+.attendanceTable {
+  font-size: 12px;
+  text-align: center;
+  }
+ 
+  
+}

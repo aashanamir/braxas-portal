@@ -14,7 +14,7 @@ config({
 
 
 const corsOptions = {
-  origin: "https://www.braxas-intl.com",
+  origin: ["https://www.braxas-intl.com","http://localhost:5173"],
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
   credentials: true,
   optionsSuccessStatus: 204,
@@ -36,11 +36,11 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(cors(corsOptions));
 // Routes
-import Users from "./router/userRouter.js";
 import Message from "./router/messageRouter.js";
+import Employee from "./router/employeeRouter.js";
 
-app.use("/api/v1/user", Users);
 app.use("/api/v1/message", Message);
+app.use("/api/v1/employee", Employee);
 
 
 

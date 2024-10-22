@@ -1,14 +1,39 @@
 import React, { useState } from "react";
-import styles from "./style.module.css"; // Import the CSS module
+import styles from "./style.module.css";
+import axios from "axios";
+import { setIsAdmin, setToken, setUser } from "../../slice/authSlice";
+import { useDispatch } from "react-redux";
+import { BASEURL } from "../../API/BASEURL";
 
 const SignIn = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const dispatch = useDispatch();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Email:", email);
-    console.log("Password:", password);
+    try {
+      const { data } = await axios.post(
+        `${BASEURL}/employee/login`,
+        { email, password },
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+          withCredentials: true,
+        }
+      );
+      let employee = data.employee;
+      dispatch(setUser(employee));
+      dispatch(setToken(data.token));
+      if(employee.role === "Admin"){
+        dispatch(setIsAdmin(true));
+      }
+      console.log(data);
+    } catch (error) {
+      console.log(error);
+      alert(error.response.data.message);
+    }
   };
 
   return (
@@ -17,7 +42,9 @@ const SignIn = () => {
         <h2 className={styles.title}>Welcome To Braxas International</h2>
         <form className={styles.form} onSubmit={handleSubmit}>
           <div className={styles.formGroup}>
-            <label className={styles.label} htmlFor="email">Email</label>
+            <label className={styles.label} htmlFor="email">
+              Email
+            </label>
             <input
               type="email"
               id="email"
@@ -29,7 +56,9 @@ const SignIn = () => {
             />
           </div>
           <div className={styles.formGroup}>
-            <label className={styles.label} htmlFor="password">Password</label>
+            <label className={styles.label} htmlFor="password">
+              Password
+            </label>
             <input
               type="password"
               id="password"

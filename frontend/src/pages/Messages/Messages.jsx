@@ -1,7 +1,5 @@
 import React from "react";
 import styles from "./style.module.css";
-import Navbar from "../../components/Navbar/Navbar";
-import Sidebar from "../../components/Sidebar/Sidebar";
 import { FiUserPlus } from "react-icons/fi";
 
 const Messages = () => {
@@ -18,9 +16,7 @@ const Messages = () => {
 
   return (
     <div>
-      <Navbar />
       <div className={styles.flex}>
-        <Sidebar />
         <div className={styles.messageListContainer}>
           <div className={styles.header}>
             <h1>New Messages</h1>

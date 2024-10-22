@@ -15,6 +15,9 @@
 }
 
 .sidebarMenu {
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
   list-style: none;
   padding: 0;
   margin: 0;
@@ -28,10 +31,11 @@
   padding: 15px 0;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  color: rgb(83, 83, 83);
 }
 
 .sidebarItem:hover  {
-  background-color: red; /* Lighter red on hover */
+  background-color: red; 
   color: white;
   border-radius: 8px;
 }
@@ -45,6 +49,7 @@
   color: inherit; /* Inherit color to avoid styling issues */
   text-decoration: none;
 }
+
 
 .active {
   background-color: red; /* Background for active link */
